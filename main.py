@@ -1,15 +1,28 @@
 def carpet_cleaning_service(amount_paid):
-    if amount_paid == 6:
-        print("You have selected Platinum Service")
-        print("4 bedroom and 1 hallway Power Clean")
-        print("Carpet Shampoo")
-        print("Deep Rinse")
-        print("Steam Non-Chemical Dry")
+    """Provides details of the selected carpet cleaning service."""
+    services = {
+        6: {
+            "name": "Platinum Service",
+            "details": [
+                "4 bedroom and 1 hallway Power Clean",
+                "carpet Shampoo",
+                "Deep Rinse",
+                "Steam No-Chemical Dry"
+            ]
+        },
+        10: {
+            "name": "Basic Service",
+            "details": [
+                "2 bedroom Basic Clean",
+                "Deep Rinse"
+            ]
+        }
+    }
 
-    if amount_paid == 10:
-        print("You have selected Basic Service")
-        print("2 bedroom Basic Clean")
-        print("Deep Rinse")
+    if amount_paid in services:
+        print(f"You have selected {services[amount_paid]['name']}")
+        for detail in services[amount_paid]["details"]:
+            print(detail)    
 
-
-carpet_cleaning_service(10)
+# Example usage
+carpet_cleaning_service(6)
