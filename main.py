@@ -1,4 +1,4 @@
-def carpet_cleaning_service(amount_paid):
+def carpet_cleaning_service():
     """Provides details of the selected carpet cleaning service."""
     services = {
         6: {
@@ -19,10 +19,19 @@ def carpet_cleaning_service(amount_paid):
         }
     }
 
-    if amount_paid in services:
-        print(f"You have selected {services[amount_paid]['name']}")
-        for detail in services[amount_paid]["details"]:
-            print(detail)    
+    try:
+        # Accept user input and convert to integer
+        amount_paid = int(input("Enter the amount you paid for the service (6 or 10): "))
+
+        # Check if the input matches available services
+        if amount_paid in services:
+            print(f"You have selected {services[amount_paid]['name']}")
+            for detail in services[amount_paid]["details"]:
+                print(detail)
+        else:
+            print("Invalid payment amount. Please select a valid service.")
+    except ValueError:
+        print("Error: Invalid input. Please enter a valid numeric amount.")    
 
 # Example usage
-carpet_cleaning_service(6)
+carpet_cleaning_service()
